@@ -1,0 +1,5 @@
+export const SCENE_INDEX = 'INDEX'
+export const SCENE_WEB = 'WEB'
+export const SCENE_TOPICDETAILE = 'TOPICDETAILE'
+export const SCENE_LADDER = 'LADDER'
+export const SCENE_DAILIES = 'DAILIES'
