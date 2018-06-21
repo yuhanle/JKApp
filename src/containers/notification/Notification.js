@@ -73,6 +73,18 @@ export default class Home extends Component {
     return <RecommendMsg data={item}/>
   }
 
+  _header = () => {
+    return (
+      // 发布动态
+      <TouchableOpacity style={styles.sendBox} activeOpacity={0.6}>
+        <View style={styles.sendBg}>
+          <Image style={styles.sendAvatar} source={{ uri: 'https://cdn.ruguoapp.com/Fk87XQk7xJnXEUVumfoUzL3Ce2wV.jpg?imageView2/0/w/800/h/800' }}/>
+          <Text style={styles.sendPlaceholder}>发布动态...</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  }
+
   _listFooter() {
     return (
       <View style={[styles.list_footer, { display: this.state.recommendData.length === 0 ? 'none' : 'flex' }]}/>
@@ -119,6 +131,7 @@ export default class Home extends Component {
           getItemLayout={(data, index) => (
             {length: 120, offset: 120 * index, index}
           )}
+          ListHeaderComponent={() => this._header()}
           ListFooterComponent={() => this._footer()}
           ListEmptyComponent={() => this._emptyDiary()}
           ItemSeparatorComponent={() => this._separator()}
@@ -139,6 +152,32 @@ const styles = StyleSheet.create({
     height: 64,
     width: '100%',
     backgroundColor: '#fff',
+  },
+  sendBox: {
+    paddingTop: 10,
+    paddingBottom: 15,
+    backgroundColor: '#eee',
+  },
+  sendBg: {
+    paddingTop: 15,
+    paddingBottom: 15,
+    backgroundColor: '#fff',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  sendAvatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    overflow: 'hidden',
+    marginLeft: 20,
+  },
+  sendPlaceholder: {
+    color: '#aaa',
+    fontSize: 17,
+    marginLeft: 15,
   },
   none_container: {
     alignItems: 'center',

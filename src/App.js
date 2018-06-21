@@ -10,6 +10,8 @@ import Web from './containers/common/Web'
 import TopicDetail from './containers/search/TopicDetail'
 import Ladder from './containers/search/Ladder'
 import Dailies from './containers/search/Dailies'
+import DailiesHis from './containers/search/DailiesHis'
+import QRScan from './containers/search/QRScan'
 
 import { Scene, Router, ActionConst } from 'react-native-router-flux'
 import * as scenes from './constants/scene'
@@ -51,6 +53,16 @@ export default class App extends Component {
               hideNavBar
               key={scenes.SCENE_DAILIES}
               component={Dailies}
+            />
+            <Scene
+              hideNavBar
+              key={scenes.SCENE_DAILIESHIS}
+              component={DailiesHis}
+            />
+            <Scene
+              hideNavBar
+              key={scenes.SCENE_QRSCAN}
+              component={QRScan}
             />
           </Scene>
         </Router>

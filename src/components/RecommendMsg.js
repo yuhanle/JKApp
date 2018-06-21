@@ -18,6 +18,7 @@ import { SCENE_WEB } from '../constants/scene'
 import TextPingFang from './TextPingFang'
 import SeperatorLine from './SeperatorLine'
 import SharePopup from './SharePopup'
+import ImageView from './ImageView'
 
 export default class RecommendMsg extends Component {
   static propTypes = {
@@ -30,6 +31,12 @@ export default class RecommendMsg extends Component {
 
   render() {
     let msgData = this.props.data
+    let uri = ''
+
+    if (msgData.item && msgData.item.pictures && msgData.item.pictures[0] && msgData.item.pictures[0].middlePicUrl) {
+        uri = msgData.item.pictures[0].middlePicUrl
+    }
+
     return (
       <View style={styles.container}>
         <TouchableOpacity
@@ -67,13 +74,24 @@ export default class RecommendMsg extends Component {
               </View>
               // 话题配图或视频
               {
-
+                uri.length ? (
+                  <ImageView
+                    style={styles.itemImage}
+                    source={{ uri: uri }}
+                    images={[
+                      {
+                        url: uri,
+                        freeHeight: true
+                      }
+                    ]}
+                  />
+                ) : null
               }
             </View>
             : null
           }
 
-          <SeperatorLine style={{width: WIDTH}}/>
+          <SeperatorLine style={{ width: WIDTH, marginTop: 10}}/>
           {
             msgData && msgData.item ?
               // 操作区域
@@ -161,7 +179,6 @@ const styles = StyleSheet.create({
   content: {
     paddingLeft: 20,
     paddingRight: 20,
-    paddingBottom: 20,
   },
   contentText: {
     lineHeight: 24,
@@ -213,5 +230,11 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'absolute',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  itemImage: {
+    marginTop: 10,
+    width: WIDTH - 40,
+    height: WIDTH/2.0,
+    alignSelf: 'center',
   }
 })

@@ -26,12 +26,14 @@ export default class Topic extends Component {
   static propTypes = {
     trending: PropTypes.number, // 0 话题 1 上升最快 2 近期最热 3 即友创建
     categories: PropTypes.string,
-    ladder: PropTypes.bool
+    ladder: PropTypes.bool,
+    categoryAlias: PropTypes.string,
   }
 
   static defaultProps = {
     ladder: false,
     trending: -1,
+    categoryAlias: 'RECOMMENDATION',
   }
 
   state = {
@@ -40,10 +42,10 @@ export default class Topic extends Component {
   }
 
   async componentDidMount() {
-    this._fetchRecommendItem()
+    this._fetchRecommendItem(this.props.categoryAlias)
   }
 
-  async _fetchRecommendItem() {
+  async _fetchRecommendItem(categoryAlias) {
     this.setState({ isRefreshing: true })
 
     var res = {}
@@ -55,7 +57,7 @@ export default class Topic extends Component {
     }else if (trending == 2) {
       res = await HttpUtils.get(FEED.trending2)
     }else {
-      res = await HttpUtils.post(USER.recommendation)
+      res = await HttpUtils.postJK(USER.recommendation, { categoryAlias: categoryAlias })
     }
 
     let tmp = res.data

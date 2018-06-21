@@ -42,7 +42,7 @@ export default class TopicItem extends Component {
         { this._renderIndexItem(item) }
         <Image style={styles.avatar} source={{ uri: item.squarePicture.thumbnailUrl }}/>
         <View style={styles.textBox}>
-          <TextPingFang style={styles.nick_name}>{item.content ? item.content : '赶紧加入我们吧'}</TextPingFang>
+          <TextPingFang style={styles.nick_name}>{item.content && item.content.length ? item.content : '赶紧加入我们吧'}</TextPingFang>
           <TextPingFang style={styles.subtitle}>{item.subscribersCount}人关注</TextPingFang>
         </View>
         <View style={{flex: 2}}/>

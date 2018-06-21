@@ -13,11 +13,24 @@ import {
 
 import Container from '../../components/Container'
 import CommonNav from '../../components/CommonNav'
+import PropTypes from 'prop-types'
 
 var WEBVIEW_REF = 'webview';
 export default class Web extends Component {
-  state = {
-    title: '即刻APP'
+  static props = {
+    url: PropTypes.string,
+  }
+
+  static defaultProps = {
+    url: 'https://m.ruguoapp.com/'
+  }
+
+  constructor() {
+    super()
+
+    this.state = {
+      title: '即刻APP'
+    }
   }
 
   render() {

@@ -20,13 +20,20 @@ import TextPingFang from './TextPingFang'
 
 export default class SharePopup extends Component {
   static propTypes = {
-    modalVisible: PropTypes.bool
+    modalVisible: PropTypes.bool,
+    animationType: PropTypes.string,
   }
+
+  static defaultProps = {
+    modalVisible: false,
+    animationType: 'none',
+  }
+
   render() {
     return (
       <Modal
+        animationType={this.props.animationType}
         visible={this.props.modalVisible}
-        animationType={'none'}
         transparent = {true}
         onRequestClose={()=> this.onRequestClose()}
       >
@@ -78,7 +85,7 @@ export default class SharePopup extends Component {
           <TouchableOpacity style={styles.cancelBox} onPress={() => {
             this.props.cancelOnPress()
           }}>
-            <Text style={styles.textCancle}>取消</Text>
+            <Text style={styles.textCancel}>取消</Text>
           </TouchableOpacity>
         </View>
       </Modal>
@@ -103,6 +110,7 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     backgroundColor: '#fff',
+    overflow: 'hidden',
   },
   scContainer: {
     width: WIDTH - 20,
@@ -129,7 +137,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#555555',
   },
-  textCancle: {
+  textCancel: {
     fontSize: 20,
     lineHeight: 50,
     color: '#555555',

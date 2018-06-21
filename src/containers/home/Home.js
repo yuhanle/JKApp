@@ -53,7 +53,7 @@ export default class Home extends Component {
             </View>
             <TouchableOpacity
               style={{width: 60, height: 40, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}
-              onPress={() => Actions.jump(SCENE_WEB, { url: 'https://www.baidu.com/' })}
+              onPress={() => Actions.jump(SCENE_WEB)}
             >
               <Image source={require('../../../res/images/ic_navbar_camera.png')} />
             </TouchableOpacity>

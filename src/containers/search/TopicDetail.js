@@ -21,6 +21,8 @@ import { Actions } from 'react-native-router-flux'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import DefaultTabBar from '../../components/DefaultTabBar'
 import SeperatorLine from '../../components/SeperatorLine'
+import HttpUtils from '../../network/HttpUtils'
+import { FEED } from '../../network/Urls'
 
 export default class TopicDetail extends Component {
   static propTypes = {
@@ -34,6 +36,25 @@ export default class TopicDetail extends Component {
       headerHeight: WIDTH/1.5,
       titleOpacity: 0.0,
     }
+  }
+
+  async componentDidMount() {
+    if (!this.props.item || !this.props.item.id) {
+      return
+    }
+
+    this._featchData(this.props.item.id)
+  }
+
+  async _featchData(itemid) {
+    let data = {
+      limit: 20,
+      topic: itemid,
+    }
+    const res = await HttpUtils.postJK(FEED.messagesHistory, data)
+
+    // TODO: 添加精选和广场
+    
   }
 
   render() {

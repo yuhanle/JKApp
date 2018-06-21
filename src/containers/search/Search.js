@@ -19,7 +19,7 @@ import {
 import HttpUtils from '../../network/HttpUtils'
 import { FEED, USER } from '../../network/Urls'
 import { Actions } from 'react-native-router-flux'
-import { SCENE_WEB, SCENE_LADDER, SCENE_DAILIES } from '../../constants/scene'
+import { SCENE_WEB, SCENE_LADDER, SCENE_DAILIES, SCENE_QRSCAN } from '../../constants/scene'
 import Carousel from 'react-native-snap-carousel'
 import TextPingFang from '../../components/TextPingFang'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
@@ -80,7 +80,12 @@ export default class Search extends Component {
             <View style={{width: WIDTH - 60, height: 40, paddingLeft: 12, paddingTop: 4, paddingBottom: 4}}>
               <SearchBar placeholder="国航航班返航"/>
             </View>
-            <TouchableOpacity style={{width: 60, height: 40, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <TouchableOpacity
+              style={{width: 60, height: 40, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}
+              onPress={() => {
+                Actions.jump(SCENE_QRSCAN)
+              }}
+            >
               <CachedImage source={require('../../../res/images/ic_navbar_scan.png')} />
             </TouchableOpacity>
           </View>
@@ -132,10 +137,13 @@ export default class Search extends Component {
               this.state.categories.map((item, idx) => {
                 return(
                   <Text key={item.key} tabLabel={item.name}>
-                    <Topic onScroll={(contentY) => {
-                      if (contentY >= 254) contentY = 254
-                      this.scBox.scrollTo({animated: false, y: contentY})
-                    }} />
+                    <Topic
+                      categoryAlias={item.alias}
+                      onScroll={(contentY) => {
+                        if (contentY >= 254) contentY = 254
+                        this.scBox.scrollTo({animated: false, y: contentY})
+                      }}
+                    />
                   </Text>
                 )
               })
@@ -198,7 +206,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   actionTitle: {
-    fontSize: 14,
+    fontSize: 12,
     marginTop: 5,
+    color: '#666666',
   }
 })
