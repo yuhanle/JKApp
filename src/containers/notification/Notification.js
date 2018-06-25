@@ -20,6 +20,8 @@ import RecommendMsg from '../../components/RecommendMsg'
 import HttpUtils from '../../network/HttpUtils'
 import { FEED } from '../../network/Urls'
 import SeperatorLine from '../../components/SeperatorLine'
+import { SCENE_CHATHIS, SCENE_NEWDONG } from '../../constants/scene'
+import { Actions } from 'react-native-router-flux'
 
 export default class Home extends Component {
   constructor(props) {
@@ -33,7 +35,9 @@ export default class Home extends Component {
 
   _leftButton() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => {
+        Actions.jump(SCENE_CHATHIS)
+      }}>
         <Image source={require('../../../res/images/ic_navbar_mail.png')} />
       </TouchableOpacity>
     )
@@ -41,7 +45,9 @@ export default class Home extends Component {
 
   _rightButton() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => {
+        Actions.jump(SCENE_NEWDONG)
+      }}>
         <Image source={require('../../../res/images/ic_navbar_camera.png')} />
       </TouchableOpacity>
     )
@@ -76,7 +82,9 @@ export default class Home extends Component {
   _header = () => {
     return (
       // 发布动态
-      <TouchableOpacity style={styles.sendBox} activeOpacity={0.6}>
+      <TouchableOpacity style={styles.sendBox} activeOpacity={0.6} onPress={() => {
+        Actions.jump(SCENE_NEWDONG)
+      }}>
         <View style={styles.sendBg}>
           <Image style={styles.sendAvatar} source={{ uri: 'https://cdn.ruguoapp.com/Fk87XQk7xJnXEUVumfoUzL3Ce2wV.jpg?imageView2/0/w/800/h/800' }}/>
           <Text style={styles.sendPlaceholder}>发布动态...</Text>

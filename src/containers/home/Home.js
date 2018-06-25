@@ -18,7 +18,7 @@ import {
 } from '../../common/styles'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import DefaultTabBar from '../../components/DefaultTabBar'
-import { SCENE_WEB } from '../../constants/scene'
+import { SCENE_WEB, SCENE_NEWDONG } from '../../constants/scene'
 import { Actions } from 'react-native-router-flux'
 import TextPingFang from '../../components/TextPingFang'
 import Recommend from './Recommend'
@@ -53,7 +53,7 @@ export default class Home extends Component {
             </View>
             <TouchableOpacity
               style={{width: 60, height: 40, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}
-              onPress={() => Actions.jump(SCENE_WEB)}
+              onPress={() => Actions.jump(SCENE_NEWDONG)}
             >
               <Image source={require('../../../res/images/ic_navbar_camera.png')} />
             </TouchableOpacity>

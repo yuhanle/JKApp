@@ -19,7 +19,7 @@ import {
 import HttpUtils from '../../network/HttpUtils'
 import { FEED, USER } from '../../network/Urls'
 import { Actions } from 'react-native-router-flux'
-import { SCENE_WEB, SCENE_LADDER, SCENE_DAILIES, SCENE_QRSCAN } from '../../constants/scene'
+import { SCENE_WEB, SCENE_LADDER, SCENE_DAILIES, SCENE_QRSCAN, SCENE_NEWTOPIC } from '../../constants/scene'
 import Carousel from 'react-native-snap-carousel'
 import TextPingFang from '../../components/TextPingFang'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
@@ -64,7 +64,9 @@ export default class Search extends Component {
   _renderItem ({item, index}) {
     return (
       <View style={styles.slide}>
-        <TouchableOpacity style={styles.banner}>
+        <TouchableOpacity style={styles.banner} onPress={() => {
+          Actions.jump(SCENE_WEB, { url: item.url })
+        }}>
           <Image style={styles.bannerImage} source={{ uri: item.pictureUrl }} />
         </TouchableOpacity>
       </View>
@@ -116,7 +118,7 @@ export default class Search extends Component {
                 <TextPingFang style={styles.actionTitle}>即刻小报</TextPingFang>
               </TouchableOpacity>
               <TouchableOpacity style={styles.actionBtnBox} onPress={() => {
-                Actions.jump(SCENE_LADDER)
+                Actions.jump(SCENE_NEWTOPIC)
               }}>
                 <Image source={require('../../../res/images/ic_discovertab_entrance_custom_topic.png')} />
                 <TextPingFang style={styles.actionTitle}>创建主题</TextPingFang>

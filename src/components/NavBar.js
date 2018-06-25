@@ -49,7 +49,7 @@ export default class NavBar extends Component {
   render() {
     let titleView = this.props.titleView
       ? this.props.titleView
-      : <Text style={[styles.title, this.props.titleStyle]}>
+      : <Text style={[styles.title, this.props.titleStyle]} numberOfLines={1}>
         {this.props.title}
       </Text>
     return (
@@ -59,7 +59,7 @@ export default class NavBar extends Component {
           <View style={[styles.titleViewContainer, this.props.titleViewStyle]}>
             {titleView}
           </View>
-          {this.props.rightButton}
+          {this.props.rightButton ? this.props.rightButton : <View style={{ width: 10, height: 10 }} />}
         </View>
         <SeperatorLine style={{opacity: this.props.showBottomLine == true ? 1.0 : 0.0}}/>
       </View>

@@ -83,7 +83,7 @@ export default class Dailies extends Component {
 
     return (
       <TouchableOpacity style={styles.itemBox} onPress={() => {
-        if (item.linkUrl.indexOf('http')) {
+        if (item.linkUrl.indexOf('http') == 0) {
           Actions.jump(SCENE_WEB, { url: item.linkUrl })
         }else {
            console.log('暂不支持该链接')

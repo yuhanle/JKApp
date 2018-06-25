@@ -12,6 +12,9 @@ import Ladder from './containers/search/Ladder'
 import Dailies from './containers/search/Dailies'
 import DailiesHis from './containers/search/DailiesHis'
 import QRScan from './containers/search/QRScan'
+import ChatHis from './containers/notification/ChatHis'
+import NewDong from './containers/notification/NewDong'
+import NewTopic from './containers/search/NewTopic'
 
 import { Scene, Router, ActionConst } from 'react-native-router-flux'
 import * as scenes from './constants/scene'
@@ -25,44 +28,49 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <Scene key='root'>
+          <Scene key='root' hideNavBar>
             <Scene
               initial
-              hideNavBar
               key={scenes.SCENE_INDEX}
               component={Index}
               type={ActionConst.REPLACE}
               duration={0}
             />
             <Scene
-              hideNavBar
               key={scenes.SCENE_WEB}
               component={Web}
             />
             <Scene
-              hideNavBar
               key={scenes.SCENE_TOPICDETAILE}
               component={TopicDetail}
             />
             <Scene
-              hideNavBar
               key={scenes.SCENE_LADDER}
               component={Ladder}
             />
             <Scene
-              hideNavBar
               key={scenes.SCENE_DAILIES}
               component={Dailies}
             />
             <Scene
-              hideNavBar
               key={scenes.SCENE_DAILIESHIS}
               component={DailiesHis}
             />
             <Scene
-              hideNavBar
               key={scenes.SCENE_QRSCAN}
               component={QRScan}
+            />
+            <Scene
+              key={scenes.SCENE_CHATHIS}
+              component={ChatHis}
+            />
+            <Scene
+              key={scenes.SCENE_NEWDONG}
+              component={NewDong}
+            />
+            <Scene
+              key={scenes.SCENE_NEWTOPIC}
+              component={NewTopic}
             />
           </Scene>
         </Router>
