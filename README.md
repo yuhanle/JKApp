@@ -10,11 +10,11 @@
 
 ## 效果图
 
-| ![](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.03.58.png) | ![./docs/](/Users/yuhanle/Desktop/baidusync/我的学习/React-Native/JKApp/docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.00.png) | ![](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.03.png) |
+| ![](./docs/1.png) | ![](./docs/2.png) | ![](./docs/3.png) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.08](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.08.png) | ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.25](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.25.png) | ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.28](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.28.png) |
-| ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.33](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.33.png) | ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.36](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.36.png) | ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.40](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.40.png) |
-| ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.44](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.44.png) | ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.48](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.04.48.png) | ![Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.14.09](./docs/Simulator Screen Shot - iPhone 6 - 2018-06-25 at 18.14.09.png) |
+| ![](./docs/4.png) | ![](./docs/5.png) | ![](./docs/6.png) |
+| ![](./docs/7.png) | ![](./docs/8.png) | ![](./docs/9.png) |
+| ![](./10.png) | ![](./docs/11.png) | ![](./docs/12.png) |
 
 ## 联系我
 
