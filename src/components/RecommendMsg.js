@@ -19,6 +19,7 @@ import TextPingFang from './TextPingFang'
 import SeperatorLine from './SeperatorLine'
 import SharePopup from './SharePopup'
 import ImageView from './ImageView'
+import VideoPreviewer from './VideoPreviewer'
 
 export default class RecommendMsg extends Component {
   static propTypes = {
@@ -29,13 +30,54 @@ export default class RecommendMsg extends Component {
     modalVisible: false,
   }
 
+  _renderMiddle(item) {
+    let uri = ''
+    let videoUri = ''
+    let videoDuration = 0
+
+    if (item && item.pictures && item.pictures[0] && item.pictures[0].middlePicUrl) {
+      uri = item.pictures[0].middlePicUrl
+
+      return (
+        <ImageView
+          style={styles.itemImage}
+          source={{ uri: uri }}
+          images={[
+            {
+              url: uri,
+              freeHeight: true
+            }
+          ]}
+        />
+      )
+    }
+
+    if (item && item.video && item.video.image && item.video.image.picUrl) {
+      videoUri = item.video.image.picUrl
+      videoDuration = item.video.duration
+
+      return (
+        <VideoPreviewer
+          style={styles.itemImage}
+          source={{
+            uri: videoUri,
+            duration: videoDuration
+          }}
+          onPress={() => {
+            if (!item || !item.linkInfo || !item.linkInfo.linkUrl) {
+              return
+            }
+            Actions.jump(SCENE_WEB, { url: item.linkInfo.linkUrl })
+          }}
+        />
+      )
+    }
+
+    return null
+  }
+
   render() {
     let msgData = this.props.data
-    let uri = ''
-
-    if (msgData.item && msgData.item.pictures && msgData.item.pictures[0] && msgData.item.pictures[0].middlePicUrl) {
-        uri = msgData.item.pictures[0].middlePicUrl
-    }
 
     return (
       <View style={styles.container}>
@@ -73,20 +115,7 @@ export default class RecommendMsg extends Component {
                 <Text style={styles.contentText}>{msgData.item.content}</Text>
               </View>
               // 话题配图或视频
-              {
-                uri.length ? (
-                  <ImageView
-                    style={styles.itemImage}
-                    source={{ uri: uri }}
-                    images={[
-                      {
-                        url: uri,
-                        freeHeight: true
-                      }
-                    ]}
-                  />
-                ) : null
-              }
+              { this._renderMiddle(msgData.item) }
             </View>
             : null
           }
